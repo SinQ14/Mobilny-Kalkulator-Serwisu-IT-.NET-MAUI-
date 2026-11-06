@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kupamaui.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="15,0"
+            Spacing="12">
+            <Label
+                Text="Kalkulator Zleceń Serwisowych"
+                BackgroundColor="#004D40"
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"/>
+
+            <Label Text="Dane Klienta"/>
+
+            <Entry Placeholder="Imię i nazwisko lub telefon klienta"
+                   x:Name="klient"/>
+
+            <Entry Placeholder="Model urządzenia (np. laptop, PC)"
+                   x:Name="urzadzenie"/>
+
+            <Label Text="Usługa bazowa"/>
+
+            <RadioButton
+                Content="Diagnostyka i czyszczenie układu chłodzenia (100 zł)"
+                GroupName="Uslugi"
+                IsChecked="True"
+                x:Name="diagnostyka"/>
+
+            <RadioButton
+                Content="Instalacja i konfiguracja systemu OS (150 zł)"
+                GroupName="Uslugi"
+                x:Name="system"/>
+
+            <RadioButton
+                Content="Naprawa płyty głównej / lutowanie (250 zł)"
+                GroupName="Uslugi"
+                x:Name="plyta"/>
+
+            <Label Text="Opcje dodatkowe"/>
+
+            <HorizontalStackLayout>
+                <CheckBox x:Name="backup"/>
+                <Label
+                    Text="Kopia zapasowa danych (+80 zł)"
+                    VerticalOptions="Center"
+                    />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <CheckBox x:Name="pasta"/>
+                <Label
+                    Text="Wymiana pasty na termoprzewodzącą premium (+40 zł)"
+                    VerticalOptions="Center"
+                    />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Switch x:Name="expres"/>
+                <Label
+                    Text="Usługa ekspresowa w 24h (+50% do sumy)"
+                    VerticalOptions="Center"
+                    />
+            </HorizontalStackLayout>
+
+            <Label
+                Text="Kod rabatowy"/>
+            <Entry Placeholder="Wpisz kod rabatowy (np. TECHNIK10)"
+                   x:Name="kodd"/>
+
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="10">
+                <Button Text="Oblicz i podsumuj"
+                        Clicked="btnOblicz"
+                        BackgroundColor="#00796B"
+                        TextColor="White"
+                        Grid.Column="0"/>
+
+                <Button Text="Wyczyść formularz"
+                        Clicked="btnWyczysc"
+                        BackgroundColor="#757575"
+                        TextColor="White"
+                        Grid.Column="1"/>
+            </Grid>
+
+            <Border BackgroundColor="White"
+                    Stroke="#004D40"
+                    StrokeThickness="2">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Podsumowanie zlecenia"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#004D40"/>
+
+                    <Label x:Name="lblPodsumowanie"
+                           Text="Wprowadź dane i kliknij Oblicz..."/>
+
+                    <Button Text="Zatwierdź zlecenie"
+                            Clicked="btnZatwierdz"
+                            BackgroundColor="#2E7D32"
+                            TextColor="White"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
